@@ -218,10 +218,12 @@ var SliderStatus = true;
 
     // PORTFOLIO
 
-    $(document).on("ready", function(){
+    $(document).on("ready", function()
+	{
     	"use strict"
 
-    	function columnsSplit(){
+    	function columnsSplit()
+		{
 	    	if($(window).innerWidth() >= 1200)
 	    		return 4
 	    	else if($(window).innerWidth() >= 992)
@@ -235,41 +237,71 @@ var SliderStatus = true;
 	    	containerPortfolio = $(".container-portfolio"),
 	    	portImage = [];
 
-	    $(window).on("resize", function(){
-	    	$(".container-portfolio .portfolio-view").each(function(a, b){
+	    $(window).on("resize", function()
+		{
+	    	$(".container-portfolio .portfolio-view").each(function(a, b)
+			{
 	    		$(b).css({
-	    			"width" : $(window).innerWidth()/columnsSplit(),
-	    			"height" : ($(window).innerWidth()/columnsSplit() - 113)
+	    			"width" : $(window).innerWidth() / columnsSplit(),
+	    			"height" : ($(window).innerWidth() / columnsSplit() - 113)
 	    		});
 	    	});
 	    });
 
-	    $.each(portfolio, function(a, b){
+	    $.each(portfolio, function(a, b)
+		{
 	    	portImage.push(b.image);
 	    });
 
-	    new preLoader(portImage, {
-	    	onComplete : function(load, errors){
-	    		$.each(portfolio, function(a, b){
+	    new preLoader(portImage,
+			{
+	    	onComplete : function(load, errors)
+			{
+	    		$.each(portfolio, function(a, b)
+				{
 			    	var image = (typeof b.image === "undefined") ? "images/broken-image.jpg" : b.image;
 
-			    	if (errors){
-			            for(var i=0; i<errors.length; i++)
+			    	if (errors)
+					{
+			            for(var i = 0; i < errors.length; i++)
 			            {
 			            	image = (errors[i] === image) ? "images/broken-image.jpg" : image;
 			            }
 			        }
+					
+					// if (b.category.includes('all'))
+					// {
+					// 	console.log("All Was Found");
+					// }
 
-			        var portList = $('<figure class="portfolio-view ' + b.category + '" style="width:' + portWidth + 'px;height:' + (portWidth-113) + 'px"><img src="' + image + '"><figcaption><h2>' + b.title + '</span></h2><p>' + b.text + '</p><a href="' + b.link + '">View more</a></figcaption></figure>');
+					// var something = (function()
+					// {
+					// 	var executed = false;
+					// 	return function()
+					// 	{
+					// 		if (!executed)
+					// 		{
+					// 			executed = true;
+					// 			var portList = $('<figure class="portfolio-view ' + b.category + '" style="width:' + portWidth + 'px;height:' + (portWidth-113) + 'px"><img src="' + image + '"><figcaption><h2>' + b.title + '</span></h2><p>' + b.text + '</p><a href="' + b.link + '">View more</a></figcaption></figure>');
+					// 			portList.appendTo(containerPortfolio);
+					// 		}
+					// 	};
+					// })();
+
+					// something();
+
+					var portList = $('<figure class="portfolio-view ' + b.category[0] + '" style="width:' + portWidth + 'px;height:' + (portWidth-113) + 'px"><img src="' + image + '"><figcaption><h2>' + b.title + '</span></h2><p>' + b.text + '</p><a href="' + b.link + '">View more</a></figcaption></figure>');
 
 			    	portList.appendTo(containerPortfolio);
 			    });
 			    
 			    $(".container-portfolio").mixItUp({
-			    	selectors : {
+			    	selectors :
+					{
 			    		target : ".portfolio-view"
 			    	},
-			    	animation: {
+			    	animation:
+					{
 			    		effects: "fade stagger scale rotateX(-360deg)",
 						easing: "cubic-bezier(0.215, 0.61, 0.355, 1)"
 					}

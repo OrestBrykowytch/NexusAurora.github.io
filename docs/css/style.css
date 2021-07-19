@@ -872,6 +872,11 @@ span.quot-name:before {
   padding-bottom: 0;
 }
 
+a.notblue
+{
+  color: inherit;
+}
+
 #filters {
   padding: 0;
   margin: 0 0 20px;
