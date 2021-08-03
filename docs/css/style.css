@@ -5,7 +5,9 @@
 */
 
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,500,400);
-
+.text-center {
+  text-align: center;
+}
 ::-moz-selection { /* Code for Firefox */
   color: #fff;
   background: #008ED6;
@@ -838,10 +840,11 @@ span.quot-name:before {
 }
 
 .counter-icon {
-  width: 30%;
+  /* width: 30%; */
   text-align: center;
-  margin-right: 5%;
-  float: left;
+  /* margin-right: 5%; */
+  /* float: left; */
+  display:inline-block;
   font-size: 30px;
 }
 

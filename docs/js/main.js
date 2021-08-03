@@ -290,7 +290,7 @@ var SliderStatus = true;
 
 					// something();
 
-					var portList = $('<figure class="portfolio-view ' + b.category[0] + '" style="width:' + portWidth + 'px;height:' + (portWidth-113) + 'px"><img src="' + image + '"><figcaption><h2>' + b.title + '</span></h2><p>' + b.text + '</p><a href="' + b.link + '">View more</a></figcaption></figure>');
+					var portList = $('<figure class="portfolio-view ' + b.category.join(" ") + '" style="width:' + portWidth + 'px;height:' + (portWidth-113) + 'px"><img src="' + image + '"><figcaption><h2>' + b.title + '</span></h2><p>' + b.text + '</p><a href="' + b.link + '">View more</a></figcaption></figure>');
 
 			    	portList.appendTo(containerPortfolio);
 			    });
